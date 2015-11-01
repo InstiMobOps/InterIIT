@@ -1,0 +1,13 @@
+/local.properties
+/.idea/workspace.xml
+/.idea
+/.gradle
+.DS_Store
+/build
+/captures
+.iml
+/gradle
+gradle.properties
+gradlew
+gradlew.bat
+InterIIT.iml
