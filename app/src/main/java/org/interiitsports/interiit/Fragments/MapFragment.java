@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -53,8 +54,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         iitm.showInfoWindow();
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 14));
         map.animateCamera(CameraUpdateFactory.zoomTo(14), 2000, null);
+        //map.getUiSettings().setMyLocationButtonEnabled(false);
 
-      //  new GetSuggestion().execute("crc");
+
+        View locationButton = ((View) mapView.findViewById(1).getParent()).findViewById(2);
+
+        // and next place it, for exemple, on bottom right (as Google Maps app)
+        RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams) locationButton.getLayoutParams();
+        // position on right bottom
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
+        rlp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+        rlp.setMargins(0, 0, 30, 30);
+        //  new GetSuggestion().execute("crc");
 
         return v;
     }
